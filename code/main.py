@@ -47,7 +47,11 @@ if __name__ == '__main__':
     input_file = get_setting('input_file', settings)
     full_input_file = input_folder + input_file
     logger.debug('loading data from input file %s' % full_input_file)
-    data = pd.read_csv(full_input_file, sep='|')
+    skiprows = get_setting('skiprows', settings)
+    data = pd.read_csv(full_input_file, sep=',', skiprows=skiprows)
+    logger.debug(data.shape)
+    logger.debug(data.head(10))
+
 
     logger.debug('done')
     finish_time = time()
