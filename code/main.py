@@ -85,10 +85,15 @@ if __name__ == '__main__':
 
     subset.plot.scatter('longitude', 'latitude')
     output_folder = get_setting('output_folder', settings)
-    output_file = 'geolocations.png'
-    full_output_file = output_folder + output_file
+    graph_file = get_setting('graph_file', settings)
+    full_output_file = output_folder + graph_file
     logger.debug('writing to %s' % full_output_file)
     plt.savefig(full_output_file)
+
+    csv_file = get_setting('csv_file', settings)
+    full_output_file = output_folder + csv_file
+    columns_to_write = get_setting('columns_to_write', settings)
+    subset[columns_to_write].to_csv(full_output_file, index=False)
 
     logger.debug('done')
     finish_time = time()
