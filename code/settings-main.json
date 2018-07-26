@@ -3,6 +3,13 @@
     "GEOLOC_CD",
     "LOC_ID"
   ],
+  "columns_to_write" : [
+    "GEOLOC_CD",
+    "latitude",
+    "longitude"
+  ],
+  "csv_file" : "geoloc_lat_lon.csv",
+  "graph_file" : "geolocations.png",
   "input_file": "us-transcom-V_D_ARPTNM_ARL_PO.csv",
   "input_folder": "../data/",
   "location_id": "LOC_ID",
