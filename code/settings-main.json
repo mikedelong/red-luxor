@@ -2,6 +2,7 @@
   "input_file": "us-transcom-V_D_ARPTNM_ARL_PO.csv",
   "input_folder": "../data/",
   "output_folder": "../output/",
+  "separator" : ",",
   "skiprows" : 4,
   "zz": 0
 }
