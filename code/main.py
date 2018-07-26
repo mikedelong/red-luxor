@@ -4,7 +4,6 @@ from os.path import isdir
 from time import time
 
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 
 
