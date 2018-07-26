@@ -26,6 +26,24 @@ def check_exists(arg_folder_name, arg_descriptor):
         quit()
 
 
+def get_latitude(arg_field):
+    int_field = int(arg_field[:8])
+    direction = arg_field[8]
+    result = float(int_field) * 1e-6
+    if direction == 'S':
+        result *= -1.0
+    return result
+
+
+def get_longitude(arg_field):
+    int_field = int(arg_field[9:-1])
+    direction = arg_field[-1]
+    result = float(int_field) * 1e-6
+    if direction == 'W':
+        result *= -1.0
+    return result
+
+
 if __name__ == '__main__':
     start_time = time()
 
@@ -51,8 +69,26 @@ if __name__ == '__main__':
     separator = get_setting('separator', settings)
     data = pd.read_csv(full_input_file, sep=separator, skiprows=skiprows)
     logger.debug(data.shape)
+    for index, item in enumerate(list(data)):
+        logger.debug('%d : %s' % (index, item))
     logger.debug(data.head(10))
 
+    columns_of_interest = get_setting('columns_of_interest', settings)
+    subset = data[columns_of_interest]
+    logger.debug(subset.shape)
+    location_id = get_setting('location_id', settings)
+    subset = subset[~subset[location_id].isnull()]
+    logger.debug(subset.shape)
+    subset['latitude'] = subset[location_id].apply(get_latitude)
+    subset['longitude'] = subset[location_id].apply(get_longitude)
+    logger.debug(subset.head(10))
+
+    subset.plot.scatter('longitude', 'latitude')
+    output_folder = get_setting('output_folder', settings)
+    output_file = 'geolocations.png'
+    full_output_file = output_folder + output_file
+    logger.debug('writing to %s' % full_output_file)
+    plt.savefig(full_output_file)
 
     logger.debug('done')
     finish_time = time()
