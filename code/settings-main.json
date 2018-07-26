@@ -1,10 +1,16 @@
 {
   "columns_of_interest": [
+    "CITY_NM",
+    "CTRY_CD",
+    "US_ST_AL_CD",
     "GEOLOC_CD",
     "LOC_ID"
   ],
   "columns_to_write" : [
     "GEOLOC_CD",
+    "CITY_NM",
+    "US_ST_AL_CD",
+    "CTRY_CD",
     "latitude",
     "longitude"
   ],
