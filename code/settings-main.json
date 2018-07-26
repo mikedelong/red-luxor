@@ -1,4 +1,5 @@
 {
+  "columns_of_interest" : ["GEOLOC_CD", "CITY_NM", "LOC_ID"],
   "input_file": "us-transcom-V_D_ARPTNM_ARL_PO.csv",
   "input_folder": "../data/",
   "output_folder": "../output/",
