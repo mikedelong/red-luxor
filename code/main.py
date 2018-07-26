@@ -48,7 +48,8 @@ if __name__ == '__main__':
     full_input_file = input_folder + input_file
     logger.debug('loading data from input file %s' % full_input_file)
     skiprows = get_setting('skiprows', settings)
-    data = pd.read_csv(full_input_file, sep=',', skiprows=skiprows)
+    separator = get_setting('separator', settings)
+    data = pd.read_csv(full_input_file, sep=separator, skiprows=skiprows)
     logger.debug(data.shape)
     logger.debug(data.head(10))
 
