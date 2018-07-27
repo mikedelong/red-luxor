@@ -6,7 +6,7 @@
     "GEOLOC_CD",
     "LOC_ID"
   ],
-  "columns_to_write" : [
+  "columns_to_write": [
     "GEOLOC_CD",
     "CITY_NM",
     "US_ST_AL_CD",
@@ -14,14 +14,14 @@
     "latitude",
     "longitude"
   ],
-  "csv_file" : "geoloc_lat_lon.csv",
-  "graph_file" : "geolocations.png",
+  "csv_file": "geoloc_lat_lon.csv",
+  "graph_file": "geolocations.png",
   "input_file": "us-transcom-V_D_ARPTNM_ARL_PO.csv",
   "input_folder": "../data/",
   "location_id": "LOC_ID",
   "output_folder": "../output/",
-  "separator" : ",",
-  "skiprows" : 4,
+  "separator": ",",
+  "skiprows": 4,
   "zz": 0
 }
 
